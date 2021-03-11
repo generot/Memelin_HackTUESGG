@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
+    <title>Location Tracker</title>
     <link rel="stylesheet" href="main.css">
     <head>
         <div style="text-align:center;">
-            <div id="imagery"></div><br>
+            <div id="imagery" class="img1"></div><br>
 
             <b>Latitude: </b>
             <input type="text" id="lat">
@@ -20,6 +21,8 @@
             <script src="JS/index.js" defer></script>
 
             <button onclick="entry()" class="b1">Press me!</button>
+            <br><br>
+            <button onclick="Navigate(imgDiv, key)" class="b1">Find your location.</button>
         </div>
     </head>
     <body>

@@ -5,6 +5,17 @@ function ResolveLink(link, ...args) {
     return link;
 }
 
+function Navigate(div, key) {
+    navigator.geolocation.getCurrentPosition((pos) => {
+        let newCoord = new Coord(
+            pos.coords.latitude, 
+            pos.coords.longitude
+        );
+
+        RenderMap(div, newCoord, key);
+    });
+}
+
 function RenderMap(div, coords, key) {
     let imgLn = ResolveLink(urls.map, coords.lon, coords.lat, key);
     
