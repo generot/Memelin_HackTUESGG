@@ -1,5 +1,4 @@
-var lt;
-var ltd;
+var globalMap = undefined;
 
 function ResolveLink(link, ...args) {
     for(let i = 0; i < args.length; i++)
@@ -19,6 +18,18 @@ function Navigate(div, key) {
     });
 }
 
+function InitGlobalMap(map) {
+    globalMap = map;
+}
+
+function DrawMarker(map, pos) {
+    var marker = new tt.Marker({
+        draggable: true
+    })
+    .setLngLat(pos)
+    .addTo(map);
+}
+
 function RenderMapDynamic(x, y) {
     var map = tt.map({
         key: 'Wb96nvDR9AEwTcbFv4EZiHnlBgt3495Y',
@@ -30,7 +41,11 @@ function RenderMapDynamic(x, y) {
     });
 
     map.addControl(new tt.FullscreenControl());
-    map.addControl(new tt.NavigationControl())
+    map.addControl(new tt.NavigationControl());
+
+    DrawMarker(map, [x, y]);
+
+    return map;
 }
 
 function RenderMapStatic(div, coords, key) {
@@ -44,22 +59,15 @@ function RenderMapStatic(div, coords, key) {
 }
 
 function getPosition(long, lat){
-    lt=lat
-    ltd=long
-    
-    RenderMapDynamic(ltd, lt)
+    RenderMapDynamic(long, lat);
 }
 
-function getLocation(clb,tr){
-    if(tr==1){
+function getLocation(clb, tr){
+    if(tr == 1) {
         window.location.reload();
-
-
-    }else{
-    navigator.geolocation.getCurrentPosition((pos) => (
-        clb(pos.coords.longitude, pos.coords.latitude)
-    ));
+    } else {
+        navigator.geolocation.getCurrentPosition((pos) => (
+            clb(pos.coords.longitude, pos.coords.latitude)
+        ));
     }
 }
-
-getLocation(getPosition)
