@@ -16,8 +16,17 @@ function Navigate(div, key) {
     });
 }
 
-function RenderMap(div, coords, specs, key) {
-    //..//
+function RenderMap(x, y) {
+    var map = tt.map({
+        key: 'Wb96nvDR9AEwTcbFv4EZiHnlBgt3495Y',
+        container: 'map',
+        center: [x, y],
+        zoom : 15,
+        maxZoom : 20,
+        minZoom : 13 
+    });
+    map.addControl(new tt.FullscreenControl());
+    map.addControl(new tt.NavigationControl())
 }
 
 function RenderMapStatic(div, coords, key) {
@@ -29,3 +38,18 @@ function RenderMapStatic(div, coords, key) {
     div?.lastChild?.remove();
     div.appendChild(img);
 }
+var lt
+var ltd
+function getPosition(long, lat){
+    lt=lat
+    ltd=long
+    RenderMap(ltd, lt)
+}
+
+function getLocation(clb){
+    navigator.geolocation.getCurrentPosition((pos)=>(
+        clb(pos.coords.longitude, pos.coords.latitude)
+        ))
+}
+
+getLocation(getPosition)
