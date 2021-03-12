@@ -12,11 +12,15 @@ function Navigate(div, key) {
             pos.coords.longitude
         );
 
-        RenderMap(div, newCoord, key);
+        RenderMapStatic(div, newCoord, key);
     });
 }
 
-function RenderMap(div, coords, key) {
+function RenderMap(div, coords, specs, key) {
+    //..//
+}
+
+function RenderMapStatic(div, coords, key) {
     let imgLn = ResolveLink(urls.map, coords.lon, coords.lat, key);
     
     let img = document.createElement("img");

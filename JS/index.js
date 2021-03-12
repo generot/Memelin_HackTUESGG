@@ -10,7 +10,7 @@ function entry() {
     let lat = parseFloat(latbox.value),
         long = parseFloat(longbox.value);
 
-    RenderMap(
+    RenderMapStatic(
         imgDiv, 
         new Coord(lat, long), 
         key
