@@ -19,7 +19,7 @@ function Navigate(div, key) {
     });
 }
 
-function RenderMap(x, y) {
+function RenderMapDynamic(x, y) {
     var map = tt.map({
         key: 'Wb96nvDR9AEwTcbFv4EZiHnlBgt3495Y',
         container: 'map',
@@ -45,13 +45,20 @@ function RenderMapStatic(div, coords, key) {
 function getPosition(long, lat){
     lt=lat
     ltd=long
-    RenderMap(ltd, lt)
+    
+    RenderMapDynamic(ltd, lt)
 }
 
-function getLocation(clb){
+function getLocation(clb,tr){
+    if(tr==1){
+        window.location.reload();
+
+
+    }else{
     navigator.geolocation.getCurrentPosition((pos) => (
         clb(pos.coords.longitude, pos.coords.latitude)
     ));
+    }
 }
 
 getLocation(getPosition)
