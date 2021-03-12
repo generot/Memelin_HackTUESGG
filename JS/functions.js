@@ -1,3 +1,6 @@
+var lt;
+var ltd;
+
 function ResolveLink(link, ...args) {
     for(let i = 0; i < args.length; i++)
         link = link.replace(`(>${i})`, args[i]);
@@ -38,8 +41,7 @@ function RenderMapStatic(div, coords, key) {
     div?.lastChild?.remove();
     div.appendChild(img);
 }
-var lt
-var ltd
+
 function getPosition(long, lat){
     lt=lat
     ltd=long
@@ -47,9 +49,9 @@ function getPosition(long, lat){
 }
 
 function getLocation(clb){
-    navigator.geolocation.getCurrentPosition((pos)=>(
+    navigator.geolocation.getCurrentPosition((pos) => (
         clb(pos.coords.longitude, pos.coords.latitude)
-        ))
+    ));
 }
 
 getLocation(getPosition)
