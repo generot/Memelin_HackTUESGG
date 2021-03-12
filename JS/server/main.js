@@ -1,8 +1,27 @@
-const http = require("http");
+const express = require("express");
+const path = require("path");
 
-const server = http.createServer((req, res) => {
-    res.writeHead("200");
-    res.end("Hello, world!");
+const server = express();
+
+const dirs = ['../../HTML', '../../CSS', '../../', '../../JS'];
+const includeFiles = [
+    "/CSS/index.css",
+    "/CSS/map.css", 
+    "/HTML/main.html",
+    "/HTML/map.html", 
+    "/index.html"
+];
+
+function setDirs(dirArr) {
+    for(let dir of dirArr)
+        server.use(express.static(path.join(__dirname, dir)));
+}
+
+setDirs(dirs);
+
+server.get("/", (req, res) => {
+    for(let file in includeFiles)
+        res.sendFile(file);
 });
 
-server.listen("80", "192.168.12.100");
+server.listen("80");
