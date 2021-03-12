@@ -1,0 +1,34 @@
+body {
+    background: linear-gradient(90deg, rgb(0, 44, 102) 0%, rgb(0, 172, 203) 100%); 
+  }
+  h1 {
+    text-align : center;
+    position : absolute;
+    top : 50%;
+    left : 50%;
+    transform : translateX(-50%) translateY(-50%);    
+    font-family: 'Times New Roman', Times, serif;
+    color:whitesmoke;
+  }
+  .a1 {
+    animation: fadeIn ease 3s;
+    animation-iteration-count: 1; 
+    animation-fill-mode: forwards; 
+    background : transparent;
+    font-style : italic;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-decoration: none;
+    position : absolute;
+    color : White;
+    font-size : 100px;
+    top : 50%;
+    left : 50%;
+    transform : translateX(-50%) translateY(-50%);
+  }
+  @keyframes fadeIn { 
+    0% { opacity: 0; } 
+    100% { opacity: 1; } 
+} 
+  .a1:hover {
+      font-weight: 900;
+  }
