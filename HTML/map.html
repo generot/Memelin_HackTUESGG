@@ -2,8 +2,8 @@
 <head>
     <link rel="stylesheet" href="../CSS/map.css">
     <link rel="stylesheet" href="../CSS/main.css">
-    <div id='map' class='map' ></div>
-    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps-web.min.js' class='mp'></script>
+    
+    <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps.css'>
     <meta name='viewport'
     content='width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no'/>
 
@@ -15,6 +15,8 @@
     <script src="../JS/map.js" defer></script>
 </head>
 <body>
+    <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps-web.min.js' class='mp'></script>
+    <div id='map' class='map' ></div>
     <button onclick="getLocation(getPosition, 1)" class="b1">Find your location.</button>
 </body>
 </html>
