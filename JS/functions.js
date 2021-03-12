@@ -45,13 +45,20 @@ function RenderMapStatic(div, coords, key) {
 function getPosition(long, lat){
     lt=lat
     ltd=long
+    
     RenderMapDynamic(ltd, lt)
 }
 
-function getLocation(clb){
+function getLocation(clb,tr){
+    if(tr==1){
+        window.location.reload();
+
+
+    }else{
     navigator.geolocation.getCurrentPosition((pos) => (
         clb(pos.coords.longitude, pos.coords.latitude)
     ));
+    }
 }
 
 getLocation(getPosition)
