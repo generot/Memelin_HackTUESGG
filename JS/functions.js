@@ -19,7 +19,7 @@ function Navigate(div, key) {
     });
 }
 
-function RenderMap(x, y) {
+function RenderMapDynamic(x, y) {
     var map = tt.map({
         key: 'Wb96nvDR9AEwTcbFv4EZiHnlBgt3495Y',
         container: 'map',
@@ -45,7 +45,7 @@ function RenderMapStatic(div, coords, key) {
 function getPosition(long, lat){
     lt=lat
     ltd=long
-    RenderMap(ltd, lt)
+    RenderMapDynamic(ltd, lt)
 }
 
 function getLocation(clb){
