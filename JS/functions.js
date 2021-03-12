@@ -28,6 +28,7 @@ function RenderMapDynamic(x, y) {
         maxZoom : 20,
         minZoom : 13 
     });
+
     map.addControl(new tt.FullscreenControl());
     map.addControl(new tt.NavigationControl())
 }

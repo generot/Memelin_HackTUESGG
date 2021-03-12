@@ -1,4 +1,6 @@
 const express = require("express");
+
+const database = require("quick.db");
 const path = require("path");
 
 const server = express();
@@ -19,9 +21,20 @@ function setDirs(dirArr) {
 
 setDirs(dirs);
 
+server.use(express.urlencoded({
+    extended: true
+}));
+
+server.use(express.json());
+
 server.get("/", (req, res) => {
     for(let file in includeFiles)
         res.sendFile(file);
 });
+
+server.post("/post-navigate", (req, res) => {
+    console.log(req.body)
+    return res.redirect("/");
+})
 
 server.listen("80");
