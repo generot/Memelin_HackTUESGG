@@ -1,0 +1,10 @@
+.map{
+    text-align : center;
+    height : 800px;
+}
+.mp{
+    text-align: center;
+}
+body{
+    background: linear-gradient(90deg, rgb(0, 44, 102) 0%, rgb(0, 172, 203) 100%);
+}
