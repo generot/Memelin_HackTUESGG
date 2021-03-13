@@ -26,20 +26,34 @@ function InitGlobalMap(map) {
     globalMap = map;
 }
 
-function DrawMarker(map) {
+function DrawExistingMarker(map, coords) {
+    var marker = new tt.Marker({
+        draggable: true
+    })
+    .setLngLat([coords.lon, coords.lat])
+    .addTo(map);
+
+    return marker;
+}
+
+function CreateMarker(map) {
     Locate((ignore, coord, ignore2) => {
-        var marker = new tt.Marker({
-            draggable: true
-        })
-        .setLngLat([coord.lon, coord.lat])
-        .addTo(map);
+        let marker = DrawExistingMarker(map, coord);
+
+        let markerObj = {
+            id: globalCount++,
+            lon: coord.lon,
+            lat: coord.lat 
+        };
+
+        allMarkers.push(markerObj);
 
         marker.on("dragend", () => {
             let crds = marker.getLngLat();
-            SendData({
-                lng: crds.lng,
-                lat: crds.lat
-            });
+            let objIx = allMarkers.indexOf(markerObj);
+
+            allMarkers[objIx].lon = crds.lng;
+            allMarkers[objIx].lat = crds.lat;
         });
     });
 }

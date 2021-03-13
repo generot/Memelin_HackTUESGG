@@ -2,7 +2,7 @@
     <head>
         <link rel="stylesheet" href="../CSS/map.css">
         <link rel="stylesheet" href="../CSS/main.css">
-        
+        <link rel="stylesheet" href="../CSS/marker.css">
         <link rel='stylesheet' type='text/css' href='https://api.tomtom.com/maps-sdk-for-web/cdn/5.x/5.69.1/maps/maps.css'>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <script src="../JS/classes.js" defer></script>
@@ -16,8 +16,9 @@
         <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps-web.min.js' class='mp'></script>
         <div id='map' class='map'></div>
 
-        <button onclick="getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 1, globalMap)" class="b1">Find your location.</button>
-        <br>
-        <button onclick="DrawMarker(globalMap)" class="b1">Add Marker</button>
+        <button onclick="getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 1, globalMap)" class="b1">Find your location.</button><br>
+        <button onclick="CreateMarker(globalMap)" class="b1">Add marker</button><br>
+        <button onclick="Submit(allMarkers)" class="b1">Submit markers</button><br>
+        <button onclick="RecvData().then(resp => console.log(resp))" class="b1">Request markers from server</button>
     </body>
 </html>

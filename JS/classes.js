@@ -4,6 +4,8 @@ const key = "Fy5uZ608OtfEGkkPspzyTj8hNxWU43tk";
 const latbox = document.getElementById("lat");
 const longbox = document.getElementById("long");
 const imgDiv = document.getElementById("imagery");
+
+var allMarkers = [], globalCount = 0;
 /////GLOBALS/////
 
 const urls = {
