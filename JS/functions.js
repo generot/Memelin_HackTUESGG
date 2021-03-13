@@ -26,13 +26,19 @@ function InitGlobalMap(map) {
     globalMap = map;
 }
 
-function DrawMarker(map) {
+function DrawExistingMarker(map, coords) {
+    var marker = new tt.Marker({
+        draggable: true
+    })
+    .setLngLat([coords.lon, coords.lat])
+    .addTo(map);
+
+    return marker;
+}
+
+function CreateMarker(map) {
     Locate((ignore, coord, ignore2) => {
-        var marker = new tt.Marker({
-            draggable: true
-        })
-        .setLngLat([coord.lon, coord.lat])
-        .addTo(map);
+        let marker = DrawExistingMarker(map, coord);
 
         let markerObj = {
             id: globalCount++,

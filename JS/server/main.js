@@ -19,29 +19,31 @@ function setDirs(dirArr) {
         server.use(express.static(path.join(__dirname, dir)));
 }
 
-setDirs(dirs);
+function add_trashcan(type_, marker){
+    database.set("ID_counter", database.get("ID_counter") + 1);
+    database.set(`Trashcan_${marker.id}`, {type: type_, latitude: marker.lat, longtitude: marker.lon});
+}
 
+setDirs(dirs);
+server.use(express.json());
 server.use(express.urlencoded({
     extended: true
 }));
-
-server.use(express.json());
 
 server.get("/", (req, res) => {
     for(let file in includeFiles)
         res.sendFile(file);
 });
 
+server.get("/get-markers", (req, res) => {
+    res.send(database.all());
+});
+
 server.post("/post-navigate", (req, res) => {
-    console.log(req.body);
     add_trashcan("Red", req.body);
 
     return res.redirect("/");
-})
+});
 
+console.log(database.all());
 server.listen("80");
-
-function add_trashcan(type_, marker){
-    database.set("ID_counter", database.get("ID_counter") + 1);
-    database.set(`Trashcan_${marker.id}`, {type: type_, latitude: marker.lat, longtitude: marker.lon});
-}
