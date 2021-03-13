@@ -6,6 +6,6 @@
     - Емил Дойчинов<br>
 
 ## Използвани външни библиотеки/интерфейсове
--- (TomTom API)["https://developer.tomtom.com/maps-sdk-web-js"]
--- Express.js
--- quick.db
+\- [TomTom API]("https://developer.tomtom.com/maps-sdk-web-js")
+\- Express.js
+\- quick.db
