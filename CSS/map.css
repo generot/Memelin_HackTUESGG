@@ -78,3 +78,14 @@ body{
     border-color: white;
     border-radius: 0.8vw;
 }
+.close_button{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-align: right;
+    color: red;
+    background-color: transparent;
+    cursor: pointer;
+    font-style: bold;
+    font-size : 1.7vw;
+}

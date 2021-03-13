@@ -56,6 +56,10 @@ function DrawExistingMarker(map, coords, type) {
     return marker;
 }
 
+function CloseMenu(){
+    document.getElementById("dropdown_background").style.display = "none";
+}
+
 function OpenMenu() {
     document.getElementById("dropdown_background").style.display = "inline";
 }
