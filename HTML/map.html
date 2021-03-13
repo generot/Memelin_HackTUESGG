@@ -17,6 +17,6 @@
 <body>
     <script src='https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.7.0/maps/maps-web.min.js' class='mp'></script>
     <div id='map' class='map' ></div>
-    <button onclick="getLocation(getPosition, 1)" class="b1">Find your location.</button>
+    <button onclick="getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 1, globalMap)" class="b1">Find your location.</button>
 </body>
 </html>
