@@ -10,3 +10,8 @@ function SendData(data) {
 
     return rsp;
 }
+
+function Submit(markers) {
+    for(let marker of markers)
+        SendData(marker);
+}

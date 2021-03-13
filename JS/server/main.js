@@ -33,13 +33,15 @@ server.get("/", (req, res) => {
 });
 
 server.post("/post-navigate", (req, res) => {
-    console.log(req.body)
+    console.log(req.body);
+    add_trashcan("Red", req.body);
+
     return res.redirect("/");
 })
 
 server.listen("80");
 
-function add_trashcan(type_, lat, lon){
+function add_trashcan(type_, marker){
     database.set("ID_counter", database.get("ID_counter") + 1);
-    database.set(`Trashcan_${database.get("ID_counter")}`, {type: type_, latitude: lat, longtitude: lon});
+    database.set(`Trashcan_${marker.id}`, {type: type_, latitude: marker.lat, longtitude: marker.lon});
 }

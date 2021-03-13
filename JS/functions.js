@@ -34,12 +34,20 @@ function DrawMarker(map) {
         .setLngLat([coord.lon, coord.lat])
         .addTo(map);
 
+        let markerObj = {
+            id: globalCount++,
+            lon: coord.lon,
+            lat: coord.lat 
+        };
+
+        allMarkers.push(markerObj);
+
         marker.on("dragend", () => {
             let crds = marker.getLngLat();
-            SendData({
-                lng: crds.lng,
-                lat: crds.lat
-            });
+            let objIx = allMarkers.indexOf(markerObj);
+
+            allMarkers[objIx].lon = crds.lng;
+            allMarkers[objIx].lat = crds.lat;
         });
     });
 }
