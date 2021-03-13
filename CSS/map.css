@@ -1,6 +1,7 @@
 .map{
     text-align : center;
-    height : 800px;
+    align-self: center;
+    height : 500px;
 }
 .mp{
     text-align: center;
