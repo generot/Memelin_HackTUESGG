@@ -3,6 +3,11 @@
     align-self: center;
     height : 40vw;
 }
+@media only screen and (max-width: 480px) {
+    .map {
+        height: 100vw;
+    }
+}
 
 @media only screen and (max-width: 480px) {
     .map {
