@@ -20,7 +20,7 @@ body {
     text-decoration: none;
     position : absolute;
     color : White;
-    font-size : 100px;
+    font-size : 100 px;
     top : 50%;
     left : 50%;
     transform : translateX(-50%) translateY(-50%);
