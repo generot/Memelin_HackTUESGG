@@ -7,5 +7,5 @@
 
 ## Използвани външни библиотеки/интерфейсове
 \- [TomTom API](https://developer.tomtom.com/maps-sdk-web-js)<br>
-\- Express.js<br>
-\- quick.db
+\- [Express.js](http://expressjs.com/)<br>
+\- [quick.db](https://quickdb.js.org/)
