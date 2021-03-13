@@ -63,5 +63,5 @@ server.post("/post-navigate", (req, res) => {
     return res.redirect("/");
 });
 
-console.log(database.all());
+//console.log(database.all());
 server.listen("80");
