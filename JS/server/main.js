@@ -5,18 +5,27 @@ const path = require("path");
 
 const server = express();
 
-const dirs = ['../../HTML', '../../CSS', '../../', '../../JS'];
+const dirs = ['../../HTML', '../../CSS', '../../', '../../JS', '../../images'];
+const images = [
+    "/CSS/trash_cans/chervena_kofa.png",
+    "/CSS/trash_cans/julta_kofa.png",
+    "/CSS/trash_cans/sinq_kofa.png",
+    "/CSS/trash_cans/siva_kofa.png",
+    "/CSS/trash_cans/zelena_kofa.png",
+    "/images/Mitaka.png",
+    "/images/nakovich.png",
+    "/images/tejkar.png",
+    "/images/venkoto.png",
+]
+
 const includeFiles = [
     "/CSS/index.css",
     "/CSS/map.css", 
     "/HTML/main.html",
     "/HTML/map.html", 
+    "/HTML/aboutUs.html",
     "/index.html",
-    "/CSS/trash_cans/chervena_kofa.png",
-    "/CSS/trash_cans/julta_kofa.png",
-    "/CSS/trash_cans/sinq_kofa.png",
-    "/CSS/trash_cans/siva_kofa.png",
-    "/CSS/trash_cans/zelena_kofa.png"
+    ...images
 ];
 
 function setDirs(dirArr) {
@@ -50,7 +59,7 @@ server.get("/get-markers", (req, res) => {
 
 server.post("/post-navigate", (req, res) => {
     add_trashcan(req.body);
-    
+
     return res.redirect("/");
 });
 

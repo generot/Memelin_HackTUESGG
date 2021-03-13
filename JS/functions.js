@@ -33,19 +33,15 @@ function DrawExistingMarker(map, coords, type) {
     switch(type){
         case "Plastic/Metal":
             iconElement.style.backgroundImage = "url('../CSS/trash_cans/julta_kofa.png')";
-            //iconElement.style.backgroundImage = "url('/images/julta_kofa.png')";
             break;
         case "Paper":
             iconElement.style.backgroundImage = "url('../CSS/trash_cans/sinq_kofa.png')";
-            //iconElement.style.backgroundImage = "url('/images/sinq_kofa.png')";
             break;
         case "Glass":
             iconElement.style.backgroundImage = "url('../CSS/trash_cans/zelena_kofa.png')";
-            //iconElement.style.backgroundImage = "url('/images/zelena_kofa.png')";
             break;
         case "Basic":
             iconElement.style.backgroundImage = "url('../CSS/trash_cans/siva_kofa.png')";
-            //iconElement.style.backgroundImage = "url('/images/siva_kofa.png')";
             break;    
     }
 
