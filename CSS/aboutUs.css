@@ -1,0 +1,91 @@
+html{
+  background: linear-gradient(75deg, #03ffdd, #b006ff, #ff4da9, #1100ff ) no-repeat;
+	background-size: 400% 400%;
+    height:100%;
+	animation: gradient 15s ease infinite;
+}
+h1{
+  
+  text-align : center;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  color : transparent;
+  font-family : Arial, Helvetica, sans-serif;
+  font-size : 3vw;
+}
+p{
+  color : black;
+  text-align:left;
+  font-family:'Times New Roman', Times, serif;
+  font-size : 19px;
+}   
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+.column {
+  float:left;
+  width: 25%;
+  padding: 0 8px;
+  height:50%;
+
+}
+
+
+.card {
+    transition-duration : 1.5s;
+    padding-left:10px ;
+    padding-right:10px ;
+    padding-top:10px ;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    align-self: center;
+    height:50%;
+}
+
+
+.card:hover {
+    
+   margin-top: 5vh;
+   animation: mb 1.5s ease-out;
+   transition-duration:1.5s;
+  }
+
+
+.about-section {
+  text-align: center;
+  height:50%;
+}
+
+.container {
+  padding: 3px 4px; 
+  height:50%;
+}
+
+.container::after, .row::after {
+  content: "";
+  clear: both;
+  display: table;
+  height:50%;
+}
+
+@keyframes mb{
+    0%{ margin-bottom:1.25vh};
+    50%{ margin-bottom:2.5vh};
+    100%{ margin-top:5vh}
+}
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
