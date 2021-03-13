@@ -1,18 +1,21 @@
 body {
-    background: linear-gradient(90deg, rgb(0, 44, 102) 0%, rgb(0, 172, 203) 100%); 
+    background: transparent;
 }
 
 .b1{
-    border: none;
-    background : transparent;
+    transition-duration : 1s;
+    background : rgba(124, 114, 114, 0.5);
+    border-radius : 10px;
+    margin-bottom : 10px;
     color : white;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size : 25px;
+    border : none;
 }
 
 .b1:hover{
-    transition: 1s;
-    background-color:rgba(0,0,0,0.3);
+    transition-duration: 1s;
+    background-color:rgba(0,0,0,0.5);
     border-radius : 10px;
 }
 
