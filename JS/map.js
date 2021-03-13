@@ -10,7 +10,7 @@ async function ServerInteraction() {
 
     for(let i = 1; i < resp.length; i++) {
         let data = JSON.parse(resp[i].data);
-        DrawExistingMarker(globalMap, new Coord(data.latitude, data.longtitude));
+        DrawExistingMarker(globalMap, new Coord(data.latitude, data.longtitude), data.type);
     }
 
     console.log(resp);
@@ -18,7 +18,7 @@ async function ServerInteraction() {
 }
 
 async function uselessFunction() {
-    //await ServerInteraction();
+    await ServerInteraction();
     console.log(globalCount);
 
     getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 0, globalMap);
