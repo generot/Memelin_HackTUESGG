@@ -12,10 +12,15 @@ h1{
   font-family : Arial, Helvetica, sans-serif;
   font-size : 5vw;
 }
+h2{
+  color :white;
+  font-size : 30px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 p{
-  color : black;
+  color : white;
+  font-family : Arial, Helvetica, sans-serif;
   text-align:left;
-  font-family:'Times New Roman', Times, serif;
   font-size : 20px;
 }   
 html {
@@ -41,10 +46,10 @@ html {
     padding-left:10px ;
     padding-right:10px ;
     padding-top:10px ;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  margin: 8px;
-  align-self: center;
-  height:50%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    margin: 8px;
+    align-self: center;
+    height:50%;
 }
 
 
