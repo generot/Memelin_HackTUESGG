@@ -103,3 +103,14 @@ body{
 		background-position: 0% 50%;
     }
 }
+.close_button{
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    text-align: right;
+    color: red;
+    background-color: transparent;
+    cursor: pointer;
+    font-style: bold;
+    font-size : 1.7vw;
+}

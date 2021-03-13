@@ -26,9 +26,29 @@ function InitGlobalMap(map) {
     globalMap = map;
 }
 
-function DrawExistingMarker(map, coords) {
+function DrawExistingMarker(map, coords, type) {
+    var iconElement = document.createElement('div');
+    iconElement.className = 'marker-icon';
+
+    switch(type){
+        case "Plastic/Metal":
+            iconElement.style.backgroundImage = "url('../CSS/trash_cans/julta_kofa.png')";
+            break;
+        case "Paper":
+            iconElement.style.backgroundImage = "url('../CSS/trash_cans/sinq_kofa.png')";
+            break;
+        case "Glass":
+            iconElement.style.backgroundImage = "url('../CSS/trash_cans/zelena_kofa.png')";
+            break;
+        case "Basic":
+            iconElement.style.backgroundImage = "url('../CSS/trash_cans/siva_kofa.png')";
+            break;    
+    }
+
+    
     var marker = new tt.Marker({
-        draggable: true
+        draggable: true,
+        element: iconElement
     })
     .setLngLat([coords.lon, coords.lat])
     .addTo(map);
@@ -36,20 +56,27 @@ function DrawExistingMarker(map, coords) {
     return marker;
 }
 
-function GetType(){
+function CloseMenu(){
+    document.getElementById("dropdown_background").style.display = "none";
+}
+
+function OpenMenu() {
+    document.getElementById("dropdown_background").style.display = "inline";
+}
+
+function GetType() {
     document.getElementById("dropdown_background").style.display = "none";
     return document.getElementById("input").value;
 }
 
 function CreateMarker(map) {
-    document.getElementById("dropdown_background").style.display = "inline";
-
     Locate((ignore, coord, ignore2) => {
-        let marker = DrawExistingMarker(map, coord);
+        var type_ = GetType();
+        let marker = DrawExistingMarker(map, coord, type_);
 
         let markerObj = {
             id: globalCount++,
-            type: GetType(),
+            type: type_,
             lon: coord.lon,
             lat: coord.lat 
         };
