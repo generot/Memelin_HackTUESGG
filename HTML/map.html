@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+    <title>🌿ElemenD🌿</title>
     <head>
         <link rel="stylesheet" href="../CSS/map.css">
         <link rel="stylesheet" href="../CSS/main.css">
@@ -17,7 +18,7 @@
         <div id='map' class='map'></div>
 
         <button onclick="getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 1, globalMap)" class="b1">Find your location.</button><br>
-        <button onclick="CreateMarker(globalMap)" class="b1">Add marker</button><br>
+        <button onclick="OpenMenu()" class="b1">Add marker</button><br>
         <button onclick="Submit(allMarkers)" class="b1">Submit markers</button><br>
         <button onclick="RecvData().then(resp => console.log(resp))" class="b1">Request markers from server</button>
     
@@ -30,7 +31,7 @@
                     <option value="Glass">Glass</option>
                     <option value="Basic">Basic</option>
                 </select>
-                <button onclick="GetType()" class="submit_button">Submit</button>
+                <button onclick="CreateMarker(globalMap)" class="submit_button">Submit</button>
             </div>
         </div>
     </body>

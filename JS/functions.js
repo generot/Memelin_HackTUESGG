@@ -36,14 +36,16 @@ function DrawExistingMarker(map, coords) {
     return marker;
 }
 
-function GetType(){
+function OpenMenu() {
+    document.getElementById("dropdown_background").style.display = "inline";
+}
+
+function GetType() {
     document.getElementById("dropdown_background").style.display = "none";
     return document.getElementById("input").value;
 }
 
 function CreateMarker(map) {
-    document.getElementById("dropdown_background").style.display = "inline";
-
     Locate((ignore, coord, ignore2) => {
         let marker = DrawExistingMarker(map, coord);
 
