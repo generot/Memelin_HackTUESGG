@@ -1,7 +1,12 @@
 .map{
     text-align : center;
     align-self: center;
-    height : 500px;
+    height : 40vw;
+}
+@media only screen and (max-width: 480px) {
+    .map {
+        height: 100vw;
+    }
 }
 .mp{
     text-align: center;
