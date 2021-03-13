@@ -1,6 +1,11 @@
 # Memelin_HackTUESGG
 Това е официалната репозитория за HackTUES GG на отбор Memelin:<br>
--Венелин Новаков<br>
--Мартин Наков<br>
--Димитър Николов<br>
--Емил Дойчинов<br>
+    - Венелин Новаков<br>
+    - Мартин Наков<br>
+    - Димитър Николов<br>
+    - Емил Дойчинов<br>
+
+## Използвани външни библиотеки/интерфейсове
+    - [TomTom API]("https://developer.tomtom.com/maps-sdk-web-js")
+    - Express.js
+    - quick.db
