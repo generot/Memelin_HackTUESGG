@@ -38,3 +38,8 @@ server.post("/post-navigate", (req, res) => {
 })
 
 server.listen("80");
+
+function add_trashcan(type_, lat, lon){
+    database.set("ID_counter", database.get("ID_counter") + 1);
+    database.set(`Trashcan_${database.get("ID_counter")}`, {type: type_, latitude: lat, longtitude: lon});
+}
