@@ -1,5 +1,3 @@
-var globalMap = undefined;
-
 function ResolveLink(link, ...args) {
     for(let i = 0; i < args.length; i++)
         link = link.replace(`(>${i})`, args[i]);
@@ -35,6 +33,14 @@ function DrawMarker(map) {
         })
         .setLngLat([coord.lon, coord.lat])
         .addTo(map);
+
+        marker.on("dragend", () => {
+            let crds = marker.getLngLat();
+            SendData({
+                lng: crds.lng,
+                lat: crds.lat
+            });
+        });
     });
 }
 
