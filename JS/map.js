@@ -1,4 +1,3 @@
-getLocation(getPosition, 0);
+var globalMap = CreateDynamicMap();
 
-console.log(globalMap);
-//DrawMarker(globalMap, [33, 33]);
+getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 0, globalMap);

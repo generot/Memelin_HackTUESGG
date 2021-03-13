@@ -1,5 +1,3 @@
-var globalMap = undefined;
-
 function ResolveLink(link, ...args) {
     for(let i = 0; i < args.length; i++)
         link = link.replace(`(>${i})`, args[i]);
@@ -7,34 +5,50 @@ function ResolveLink(link, ...args) {
     return link;
 }
 
-function Navigate(div, key) {
+function Locate(clb, key = "") {
     navigator.geolocation.getCurrentPosition((pos) => {
         let newCoord = new Coord(
             pos.coords.latitude, 
             pos.coords.longitude
         );
 
-        RenderMapStatic(div, newCoord, key);
+        clb(imgDiv, newCoord, key);
     });
+}
+
+function Navigate(key) {
+    Locate((div, crd, key) => {
+        RenderMapStatic(div, crd, key);
+    }, key);
 }
 
 function InitGlobalMap(map) {
     globalMap = map;
 }
 
-function DrawMarker(map, pos) {
-    var marker = new tt.Marker({
-        draggable: true
-    })
-    .setLngLat(pos)
-    .addTo(map);
+function DrawMarker(map) {
+    Locate((ignore, coord, ignore2) => {
+        var marker = new tt.Marker({
+            draggable: true
+        })
+        .setLngLat([coord.lon, coord.lat])
+        .addTo(map);
+
+        marker.on("dragend", () => {
+            let crds = marker.getLngLat();
+            SendData({
+                lng: crds.lng,
+                lat: crds.lat
+            });
+        });
+    });
 }
 
-function RenderMapDynamic(x, y) {
+function CreateDynamicMap(crds = [30, 30]) {
     var map = tt.map({
         key: 'Wb96nvDR9AEwTcbFv4EZiHnlBgt3495Y',
         container: 'map',
-        center: [x, y],
+        center: Array.from(crds),
         zoom : 15,
         maxZoom : 20,
         minZoom : 13 
@@ -43,7 +57,13 @@ function RenderMapDynamic(x, y) {
     map.addControl(new tt.FullscreenControl());
     map.addControl(new tt.NavigationControl());
 
-    DrawMarker(map, [x, y]);
+    return map;
+}
+
+function RenderMapDynamic(map, x, y) {
+    map.jumpTo({
+        center: [x, y]
+    }, {});
 
     return map;
 }
@@ -58,16 +78,12 @@ function RenderMapStatic(div, coords, key) {
     div.appendChild(img);
 }
 
-function getPosition(long, lat){
-    RenderMapDynamic(long, lat);
-}
-
-function getLocation(clb, tr){
+function getLocation(clb, tr, map){
     if(tr == 1) {
         window.location.reload();
     } else {
         navigator.geolocation.getCurrentPosition((pos) => (
-            clb(pos.coords.longitude, pos.coords.latitude)
+            clb(pos.coords.longitude, pos.coords.latitude, map)
         ));
     }
 }
