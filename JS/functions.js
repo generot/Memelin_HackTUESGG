@@ -27,6 +27,8 @@ function InitGlobalMap(map) {
 }
 
 function DrawMarker(map) {
+    document.getElementById("dropdown_background").style.display = "inline";
+
     Locate((ignore, coord, ignore2) => {
         var marker = new tt.Marker({
             draggable: true
