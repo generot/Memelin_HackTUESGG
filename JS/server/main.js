@@ -11,7 +11,12 @@ const includeFiles = [
     "/CSS/map.css", 
     "/HTML/main.html",
     "/HTML/map.html", 
-    "/index.html"
+    "/index.html",
+    "/CSS/trash_cans/chervena_kofa.png",
+    "/CSS/trash_cans/julta_kofa.png",
+    "/CSS/trash_cans/sinq_kofa.png",
+    "/CSS/trash_cans/siva_kofa.png",
+    "/CSS/trash_cans/zelena_kofa.png"
 ];
 
 function setDirs(dirArr) {
@@ -19,9 +24,14 @@ function setDirs(dirArr) {
         server.use(express.static(path.join(__dirname, dir)));
 }
 
-function add_trashcan(type_, marker){
+function UploadFiles(response, dirs) {
+    for(let file of dirs)
+        response.sendFile(file);
+}
+
+function add_trashcan(marker){
     database.set("ID_counter", database.get("ID_counter") + 1);
-    database.set(`Trashcan_${marker.id}`, {type: type_, latitude: marker.lat, longtitude: marker.lon});
+    database.set(`Trashcan_${marker.id}`, {type: marker.type, latitude: marker.lat, longtitude: marker.lon});
 }
 
 setDirs(dirs);
@@ -31,8 +41,7 @@ server.use(express.urlencoded({
 }));
 
 server.get("/", (req, res) => {
-    for(let file in includeFiles)
-        res.sendFile(file);
+    UploadFiles(res, includeFiles);
 });
 
 server.get("/get-markers", (req, res) => {
@@ -40,8 +49,8 @@ server.get("/get-markers", (req, res) => {
 });
 
 server.post("/post-navigate", (req, res) => {
-    add_trashcan("Red", req.body);
-
+    add_trashcan(req.body);
+    
     return res.redirect("/");
 });
 
