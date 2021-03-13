@@ -18,7 +18,7 @@ async function ServerInteraction() {
 }
 
 async function uselessFunction() {
-    await ServerInteraction();
+    //await ServerInteraction();
     console.log(globalCount);
 
     getLocation((lng, ltd, mp) => RenderMapDynamic(mp, lng, ltd), 0, globalMap);
