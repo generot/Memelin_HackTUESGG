@@ -50,7 +50,7 @@ function DrawExistingMarker(map, coords, type) {
         draggable: true,
         element: iconElement
     })
-    .setLngLat([coords.lon, coords.lat])
+    .setLngLat([coords.lon-0.01, coords.lat-0.01])
     .addTo(map);
 
     return marker;
@@ -105,6 +105,13 @@ function CreateDynamicMap(crds = [30, 30]) {
 
     map.addControl(new tt.FullscreenControl());
     map.addControl(new tt.NavigationControl());
+    map.addControl(new tt.GeolocateControl({
+        positionOptions: {
+            enableHighAccuracy: true
+        },
+        trackUserLocation: true,
+        showAccuracyCircle : false
+     }));
 
     return map;
 }
