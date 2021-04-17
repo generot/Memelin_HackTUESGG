@@ -9,4 +9,4 @@
 \- [TomTom API](https://developer.tomtom.com/maps-sdk-web-js)<br>
 \- [Express.js](http://expressjs.com/)<br>
 \- [quick.db](https://quickdb.js.org/)<br>
-<b>Модули, на които горните посочени зависят, също присъстват в 'node_modules' директорията.</b>
+<b>Модули, от които горните посочени зависят, също присъстват в 'node_modules' директорията.</b>
